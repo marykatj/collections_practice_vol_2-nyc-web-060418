@@ -15,12 +15,12 @@ def contain_a(array)
 end
 
 def first_wa(array)
-  first_wa = nil             
-  array.each do |element|  
+  first_wa = nil
+  array.each do |element|
     if element.match(/wa/)
       first_wa = element
       break
-    end                          
+    end
   end
 first_wa
 end
@@ -32,10 +32,16 @@ def remove_non_strings(array)
 end
 
 
-def count_elements(hash)       #count how many times something appears in array
-  hash.detect do |key, value|               # hash .. maybe not .select
-    hash.count(key) > 1
-  end
+def count_elements(array)      
+  array.each do |original_hash|        
+    original_hash[:count] = 0
+    name = original_hash[:name]
+    array.each do |hash|
+      if hash[:name] == name
+        original_hash[:count] += 1
+      end
+    end
+  end .uniq
 end
 
 def merge_data(keys, data)     # combined two nested data structures into one
