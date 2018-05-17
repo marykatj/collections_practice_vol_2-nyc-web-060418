@@ -44,7 +44,7 @@ def count_elements(array)
   end .uniq
 end
 
-def merge_data(keys, values)   
+def merge_data(keys, values)
   container = []
   keys.each do |person_name|
     name = person_name[:first_name]
@@ -56,14 +56,15 @@ def merge_data(keys, values)
       end
     end
   end
-  container  
+  container
 end
 
-def find_cool(hash)
-  array = []    # find all cool hashes.  .select?
-  hash.select do |key, value|
-    value == cool
+def find_cool(array)
+  container = []
+  array.each do |element|
+    container << element if element[:temperature] == "cool"
   end
+  container
 end
 
 def organize_schools(hash)
