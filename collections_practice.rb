@@ -14,10 +14,15 @@ def contain_a(array)
   return new_array
 end
 
-def first_wa(array)             #return the first element that begins with wa
-  array.find do |element|       # array with .find
-    element.start_with?("w")
-  end                           # line 19 - need correct command
+def first_wa(array)
+  first_wa = nil             
+  array.each do |element|  
+    if element.match(/wa/)
+      first_wa = element
+      break
+    end                          
+  end
+first_wa
 end
 
 def remove_non_strings(array)
