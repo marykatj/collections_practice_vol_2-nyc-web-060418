@@ -32,8 +32,8 @@ def remove_non_strings(array)
 end
 
 
-def count_elements(array)      
-  array.each do |original_hash|        
+def count_elements(array)
+  array.each do |original_hash|
     original_hash[:count] = 0
     name = original_hash[:name]
     array.each do |hash|
@@ -44,8 +44,19 @@ def count_elements(array)
   end .uniq
 end
 
-def merge_data(keys, data)     # combined two nested data structures into one
-  keys.flatten(data)           # hashes
+def merge_data(keys, values)   
+  container = []
+  keys.each do |person_name|
+    name = person_name[:first_name]
+    values.each do |person_data|
+      if person_data[name]
+        merged_person = person_data[name]
+        merged_person[:first_name] = name
+        container << merged_person
+      end
+    end
+  end
+  container  
 end
 
 def find_cool(hash)
